@@ -1,0 +1,6 @@
+*.db
+*.DB
+*.pyc
+*.ini
+*.txt
+*.sql
