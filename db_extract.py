@@ -7,6 +7,7 @@ def printInfo(paramsAll):
     for div, paramInfo in enumerate(paramsAll):
         print 'Detailed Division: %s' % (div+1)
         print '================='
+        print 'Param_no, param_type, select_param_count, display_param_count, #struct_elements, param_limit, ascii_val, hex_val, param_name'
         count = 0
         param_type = 0
         struct_key = 0
@@ -22,17 +23,21 @@ def printInfo(paramsAll):
             ascii_val = int(param[db_tables.CP_PARA_NAME.index('ascii_parameter_count')])
             repeat_count = int(param[db_tables.CP_PARA_NAME.index('Repeat_count')])
             struct_key = int(param[db_tables.CP_PARA_NAME.index('Struct_key')])
+            select_param_count = int(param[db_tables.CP_PARA_NAME.index('select_parameter_count')])
+            display_param_count = int(param[db_tables.CP_PARA_NAME.index('display_parameter_count')])
             print '{:02}'.format(count, end=""),
             for i in range(0, indentLevel+1):
                 print '|--',
             if 1:
-                print u'{:4} {:<40} {:>2} {:>4}\t{:>20} {} {}'.format(int(param[0]),\
-                                        param[3],\
+                print u'{:4}\t\t{:>2} {:>2} {:>2} {:>2} {:>20} {:>6} {:>6} {:<40} '.format(int(param[0]),\
                                         param_type,\
+                                        select_param_count,\
+                                        display_param_count,\
                                         getStrParamCount(struct_key),\
                                         param_limit,\
                                         ascii_val,\
-                                        hex_val)
+                                        hex_val,\
+                                        param[3])
 
             else:
 #refactor for unicode support
