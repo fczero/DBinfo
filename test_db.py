@@ -68,7 +68,7 @@ class TestDbHelper(unittest.TestCase):
     def test_paraminfo_from_name(self):
         test_data = (5310.0, 0.0, 0.0, u'Number of Message data', 65535.0,\
                      0.0, -1.0, 0.0, -1.0, 0.0, -1.0, 0.0, -1.0, 0.0,\
-                     u'1 .. 32', 1.0, 9.0, 13.0, 4.0, 0.0, 0.0, 0.0, 1.0,\
+                     u'1 .. 32', 1.0, 9.0, 13.0, 4.0, 1.0, 0.0, 0.0, 1.0,\
                      1.0, 0.0, 0.0, 0.0, 0.0)
         parameter_name         = 'Number of Message data'
         macro                  = 2204
@@ -187,6 +187,12 @@ class TestDbHelper(unittest.TestCase):
         macro_number = '1004'
         actual_name = db_helper.Get_Macro_Name(macro_number)
         self.assertEqual(actual_name, expected_name)
+
+    def test_get_macro_number_of_parameters(self):
+        expected_number = 5
+        macro_number = '1359'
+        actual_number = db_helper.Get_Number_Of_Parameters_Of_Macro(macro_number)
+        self.assertEqual(actual_number, expected_number)
         
 if __name__ == "__main__":
     unittest.main()

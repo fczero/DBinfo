@@ -330,6 +330,7 @@ def getMacroInfo(key, db_name=CP_MACRO_NAME):
     db.close()
     return info
 
+#remove this function, doesn't work with multiple query results
 def getNumParams(row):
     """ returns int num of parameters """
     return (int(row[PARAM_COUNT]))
@@ -337,6 +338,11 @@ def getNumParams(row):
 def getParamsAll(allMacroInfo):
     """ given list of tuples of queries returns list of list of parameters (list per result) """
     return map(getParams, allMacroInfo)
+
+def Get_Number_Of_Parameters_Of_Macro(macro, div=0):
+    """ given a macro number, returns int number of parameters """
+    retVal = Get_Macro_Attribute(macro, 'parameter_count', div)
+    return retVal
 
 def getParams(macroInfo):
     """ given tuples of queries returns list of parameters (list per result) """

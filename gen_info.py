@@ -1,4 +1,7 @@
-from db_helper import *
+# -*- coding: utf-8 -*-
+
+import db_helper
+import db_tables
 import sys
 
 def printConvertInfo(oldParamsAll, oldMacroInfo,\
@@ -27,10 +30,10 @@ Old=6
 New=6
 
 [Conversion Macro]
-Macro Count=1
-Old Macro No=2202,1
-    '''
+Macro Count=1'''
     print header
+    print 'Old Macro No=%d,1' % old_api
+    print ""
 
     for div, paramInfo in enumerate(oldParamsAll):
         count = 0
@@ -51,7 +54,7 @@ Old Macro No=2202,1
             repeatCount = \
                 int(param[db_tables.CP_PARA_NAME.index('Repeat_count')])
             struct_key = int(param[db_tables.CP_PARA_NAME.index('Struct_key')])
-            structParamCount = getStrParamCount(struct_key)
+            structParamCount = db_helper.getStrParamCount(struct_key)
             elemParamName =\
                 param[db_tables.CP_PARA_NAME.index('parameter')]
             elemParamNo =\
@@ -82,16 +85,16 @@ Old Macro No=2202,1
             repeatCount = \
                 int(param[db_tables.CP_PARA_NAME.index('Repeat_count')])
             struct_key = int(param[db_tables.CP_PARA_NAME.index('Struct_key')])
-            structParamCount = getStrParamCount(struct_key)
+            structParamCount = db_helper.getStrParamCount(struct_key)
             elemParamName =\
                 param[db_tables.CP_PARA_NAME.index('parameter')]
             elemParamNo =\
                 int(param[db_tables.CP_PARA_NAME.index('key_no')])
             print ";== [%d] %s ===" % (elemParamNo, elemParamName)
             print "[New%d_%s_PARA_%02d]" % (new_api, div+1, count)
+
             # this is inverted in code
             print "Parameter Upper, Lower=%s,%s" % (lower, upper)
-
             print "Parameter Type=%d" % paramType
             print "Ascii Parameter Count=%d" % asciiCount
             print "Hex Parameter Count=%d" % hexCount
@@ -105,27 +108,25 @@ Old Macro No=2202,1
 
 #######################################################
 if __name__ == "__main__":
-    old_api = '0'
-    detail = '0'
-    new_api = '0'
+    old_macro = '0'
+    detail  = '0'
+    new_macro = '0'
     if len(sys.argv) > 1:
-        old_api = sys.argv[1]
+        old_macro = sys.argv[1]
     if len(sys.argv) > 2:
-        new_api = sys.argv[2]
-    old_info = getMacroInfo(str(old_api))
-    old_paramsAll = getParamsAll(old_info)
-    old_paramsInfoAll = getParamsInfoAll(old_paramsAll)
-    old_paramsInfoWithStrAll = insertStrParamsAll(old_paramsInfoAll)
-
-    new_info = getMacroInfo(str(new_api))
-    new_paramsAll = getParamsAll(new_info)
-    new_paramsInfoAll = getParamsInfoAll(new_paramsAll)
-    new_paramsInfoWithStrAll = insertStrParamsAll(new_paramsInfoAll)
+        new_macro = sys.argv[2]
+    old_info                 = db_helper.getMacroInfo(str(old_macro))
+    old_paramsAll            = db_helper.getParamsAll(old_info)
+    old_paramsInfoAll        = db_helper.getParamsInfoAll(old_paramsAll)
+    old_paramsInfoWithStrAll = db_helper.insertStrParamsAll(old_paramsInfoAll)
+    new_info                 = db_helper.getMacroInfo(str(new_macro))
+    new_paramsAll            = db_helper.getParamsAll(new_info)
+    new_paramsInfoAll        = db_helper.getParamsInfoAll(new_paramsAll)
+    new_paramsInfoWithStrAll = db_helper.insertStrParamsAll(new_paramsInfoAll)
+    new_macro_name           = db_helper.Get_Macro_Name(str(new_macro))
+    new_macro_param_count    = db_helper.Get_Number_Of_Parameters_Of_Macro(str(new_macro))
     printConvertInfo(old_paramsInfoWithStrAll, old_info,\
-                     int(new_api),\
-                     'PDSCH Broadcast Information Transmission Macro 2',\
-                     15,\
+                     int(new_macro),\
+                     new_macro_name,\
+                     new_macro_param_count,\
                      new_paramsInfoWithStrAll)
-
-    #table_columns('cp_macro_name.db')
-    #table_columns('cp_para_name.db')
