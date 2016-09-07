@@ -25,9 +25,10 @@ Extract DB files in the path:
 * cp_para_name
 * cp_para_atr
 * cp_str_ptr
-* Database configuration
-* How to run tests
-* Deployment instructions
+
+
+
+
 
 ### Contribution guidelines ###
 
@@ -40,3 +41,8 @@ Extract DB files in the path:
 
 * Repo owner or admin
 * Other community or team contact
+
+### To Follow ###
+* Database configuration
+* How to run tests
+* Deployment instructions
