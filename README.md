@@ -19,12 +19,12 @@ This README would normally document whatever steps are necessary to get your app
 Extract DB files in the path:
 
 * 3G_VER_INFO.db
-* cp_combo_name
-* cp_end_name
-* cp_macro_name
-* cp_para_name
-* cp_para_atr
-* cp_str_ptr
+* cp_combo_name.db
+* cp_end_name.db
+* cp_macro_name.db
+* cp_para_name.db
+* cp_para_atr.db
+* cp_str_ptr.db
 
 
 
