@@ -47,7 +47,7 @@ This README would normally document whatever steps are necessary to get your app
 
     * pipe to file
 
-        `python gen_info.py 1240 1247 | convert_1240_to_1247.ini`
+        `python gen_info.py 1240 1247 > convert_1240_to_1247.ini`
 
 ### Contribution guidelines ###
 
