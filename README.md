@@ -19,7 +19,7 @@ This README would normally document whatever steps are necessary to get your app
 Copy DB files in the path:
 
 * 3G_VER_INFO.db 
-> rename VER_INFO.db from 3G DB folder
+> rename VER_INFO.db from 3G DB folder to 3G_VER_INFO.db
 * VER_INFO.db
 * cp_combo_name.db
 * cp_end_name.db
@@ -27,9 +27,6 @@ Copy DB files in the path:
 * cp_para_name.db
 * cp_para_atr.db
 * cp_str_ptr.db
-
-
-
 
 
 ### Contribution guidelines ###
@@ -48,3 +45,4 @@ Copy DB files in the path:
 * Database configuration
 * How to run tests
 * Deployment instructions
+* Dynamic DB Location
