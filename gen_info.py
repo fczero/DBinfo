@@ -16,6 +16,7 @@ def printConvertInfo(oldParamsAll, oldMacroInfo,\
         new_param_count = int(old_param_count)
     if not newParamsAll:
         newParamsAll = oldParamsAll
+    #refactor this mess    
     header = '''
 [Version]
 Old=Version 6.00 LTE
@@ -36,6 +37,7 @@ Macro Count=1'''
     print ""
 
     for div, paramInfo in enumerate(oldParamsAll):
+        #using count is non-pythonic
         count = 0
         print ";=============== %d to %s ===============" % (old_api, new_api)
         print "[Old%d_%s]" % (old_api, div+1)
@@ -48,6 +50,7 @@ Macro Count=1'''
         print "New Parameter Count=%d" % new_param_count
         print ""
         for param in paramInfo:
+            #using count is non-pythonic
             count += 1
             elemParamType =\
                 int(param[db_tables.CP_PARA_NAME.index('parameter_type')])
@@ -65,8 +68,10 @@ Macro Count=1'''
             print "Repeat Count=%d" % repeatCount
             print "Struct Parameter Count=%d" % structParamCount
             print ""
+        #using count is non-pythonic    
         count = 0
         for param in newParamsAll[div]:
+            #using count is non-pythonic
             count += 1
             upper = \
                 int(param[db_tables.CP_PARA_NAME.index('parameter_upper1')])
