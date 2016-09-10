@@ -18,7 +18,8 @@ This README would normally document whatever steps are necessary to get your app
 
 Extract DB files in the path:
 
-* 3G_VER_INFO.db
+* 3G_VER_INFO.db (rename VER_INFO.db from 3G DB folder)
+* VER_INFO.db
 * cp_combo_name.db
 * cp_end_name.db
 * cp_macro_name.db
