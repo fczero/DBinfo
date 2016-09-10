@@ -16,17 +16,16 @@ This README would normally document whatever steps are necessary to get your app
 
 ### How do I get set up? ###
 
-# Copy DB files in the path:
-
-* 3G_VER_INFO.db 
-> rename VER_INFO.db from 3G DB folder to 3G_VER_INFO.db
-* VER_INFO.db
-* cp_combo_name.db
-* cp_end_name.db
-* cp_macro_name.db
-* cp_para_name.db
-* cp_para_atr.db
-* cp_str_ptr.db #
+1. Copy DB files in the path:
+>* 3G_VER_INFO.db 
+>> rename VER_INFO.db from 3G DB folder to 3G_VER_INFO.db
+>* VER_INFO.db
+>* cp_combo_name.db
+>* cp_end_name.db
+>* cp_macro_name.db
+>* cp_para_name.db
+>* cp_para_atr.db
+>* cp_str_ptr.db
 
 
 ### Contribution guidelines ###
