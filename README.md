@@ -29,8 +29,10 @@ This README would normally document whatever steps are necessary to get your app
 
 ####2. Syntax####
 
-* python db_extract.py <macro no> <
-> `python db_extract.py 1247 1`
+* python db_extract.py <macro no> [detail level]
+> show basic: `python db_extract.py 1247`
+> show basic: `python db_extract.py 1247 0`
+> show detailed: `python db_extract.py 1247 1`
 
 ### Contribution guidelines ###
 
