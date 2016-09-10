@@ -45,7 +45,6 @@ This README would normally document whatever steps are necessary to get your app
 * Other community or team contact
 
 ### To Follow ###
-* Database configuration
-* How to run tests
-* Deployment instructions
+* Add docopt implementation
 * Dynamic DB Location
+* How to run tests
