@@ -29,13 +29,25 @@ This README would normally document whatever steps are necessary to get your app
 
 ####2. Syntax####
 
-* python db_extract.py <macro no> [detail level]
+* **db_extract.py** <macro no> [detail level]
     * basic display (no struct expansion)
-        `python db_extract.py 1247`
-        `python db_extract.py 1247 0`
-    * detailed display (with struct expansion)
-        `python db_extract.py 1247 1`
 
+        `python db_extract.py 1247`  **or** `python db_extract.py 1247 0`
+            
+
+    * detailed display (with struct expansion)
+
+          `python db_extract.py 1247 1`
+
+
+* **gen_info.py** <old macro no> <new macro no>
+     * display to terminal
+
+        `python gen_info.py 1240 1247`
+
+    * pipe to file
+
+        `python gen_info.py 1240 1247 | convert_1240_to_1247.ini`
 
 ### Contribution guidelines ###
 
