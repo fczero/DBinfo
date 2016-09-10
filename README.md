@@ -28,8 +28,9 @@ This README would normally document whatever steps are necessary to get your app
 * cp_str_ptr.db
 
 ####2. Syntax####
-*`python db_extract.py 1247 1`
 
+* python db_extract.py <macro no> <
+* `python db_extract.py 1247 1`
 
 ### Contribution guidelines ###
 
