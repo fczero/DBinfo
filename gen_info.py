@@ -4,6 +4,19 @@ import db_helper
 import db_tables
 import sys
 
+def fixRepeatCount(repeatCount):
+    """ returns 1 if repeatCount is 0, otherwise returns the original value.
+        This is due to division by zero error on mail notification conversion.
+    """
+    #refactor me
+    retVal = 0;
+    if int(repeatCount):
+        retVal = repeatCount
+    else:
+        retVal = 1
+    return retVal
+
+
 def printConvertInfo(oldParamsAll, oldMacroInfo,\
                      new_api=0,\
                      new_name='UPDATE_ME',\
@@ -56,6 +69,8 @@ Macro Count=1'''
                 int(param[db_tables.CP_PARA_NAME.index('parameter_type')])
             repeatCount = \
                 int(param[db_tables.CP_PARA_NAME.index('Repeat_count')])
+            #fix repeatCount, refactor me
+            repeatCount = fixRepeatCount(repeatCount)
             struct_key = int(param[db_tables.CP_PARA_NAME.index('Struct_key')])
             structParamCount = db_helper.getStrParamCount(struct_key)
             elemParamName =\
@@ -89,6 +104,8 @@ Macro Count=1'''
                 int(param[db_tables.CP_PARA_NAME.index('valiable_size')])
             repeatCount = \
                 int(param[db_tables.CP_PARA_NAME.index('Repeat_count')])
+            #fix repeatCount, refactor me
+            repeatCount = fixRepeatCount(repeatCount)
             struct_key = int(param[db_tables.CP_PARA_NAME.index('Struct_key')])
             structParamCount = db_helper.getStrParamCount(struct_key)
             elemParamName =\
